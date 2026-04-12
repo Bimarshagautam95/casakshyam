@@ -332,112 +332,49 @@
         </div>
     <!-- Visa Grant -->
 
-    <!-- Team Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative mb-5">
-                <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Team</h6>
-                <h1 class="display-4">Meet Our Expert Team</h1>
-            </div>
-            <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
-                
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="img/damit.jpeg" alt="">
-                    <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Amit Dallakoti</h5>
-                        <p class="mb-2">CEO, CCG #1934</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="img/bnikhil.jpeg" alt="">
-                    <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Nikhil Bhardwaj</h5>
-                        <p class="mb-2">RCIC #R707179</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="img/camit.jpeg" alt="">
-                    <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Amit Chaudhary</h5>
-                        <p class="mb-2">Counsellor</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="img/kprativa.jpg" alt="">
-                    <div class="bg-light text-center p-4">
-                        <h5 class="mb-3">Prativa Khadka</h5>
-                        <p class="mb-2">Director</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
-
+<!-- Team start -->
+    <div id="team-section"></div>
+    <script>
+        fetch('team.html')
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById('team-section').innerHTML = data;
+        });
+        </script>
+<!-- Team End -->
 
     <!-- Testimonial Start -->
-    <div class="container-fluid bg-image py-5" style="margin: 90px 0;">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <div class="section-title position-relative mb-4">
-                        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonial</h6>
-                        <h1 class="display-4">What Say Our Students</h1>
-                    </div>
-                    <p class="m-0">Dolor est dolores et nonumy sit labore dolores est sed rebum amet, justo duo ipsum sanctus dolore magna rebum sit et. Diam lorem ea sea at. Nonumy et at at sed justo est nonumy tempor. Vero sea ea eirmod, elitr ea amet diam ipsum at amet. Erat sed stet eos ipsum diam</p>
-                </div>
-                <div class="col-lg-7">
-                    <div class="owl-carousel testimonial-carousel">
-                        <div class="bg-white p-5">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
-                            <div class="d-flex flex-shrink-0 align-items-center mt-4">
-                                <img class="img-fluid mr-4" src="img/testimonial-2.jpg" alt="">
-                                <div>
-                                    <h5>Student Name</h5>
-                                    <span>Web Design</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-5">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <p>Sed et elitr ipsum labore dolor diam, ipsum duo vero sed sit est est ipsum eos clita est ipsum. Est nonumy tempor at kasd. Sed at dolor duo ut dolor, et justo erat dolor magna sed stet amet elitr duo lorem</p>
-                            <div class="d-flex flex-shrink-0 align-items-center mt-4">
-                                <img class="img-fluid mr-4" src="img/testimonial-1.jpg" alt="">
-                                <div>
-                                    <h5>Student Name</h5>
-                                    <span>Web Design</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="container-fluid bg-image py-5" style="margin: 90px 0;"> 
+        <div id="testimonial">
         </div>
+        <script>
+        fetch('testimonial.html')
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+        
+            const testimonialSection = doc.querySelector('.container-fluid.py-5');
+        
+            // ✅ Use outerHTML (keeps full section)
+            document.getElementById('testimonial').innerHTML = testimonialSection.outerHTML;
+        
+            // ✅ Delay slightly to ensure DOM is ready
+            setTimeout(() => {
+                $('.testimonial-carousel').owlCarousel({
+                    autoplay: true,
+                    smartSpeed: 1000,
+                    margin: 25,
+                    dots: true,
+                    loop: true,
+                    responsive: {
+                        0:{ items:1 },
+                        768:{ items:1 }
+                    }
+                });
+            }, 100);
+        });
+        </script>
     </div>
     <!-- Testimonial Start -->
 
@@ -463,7 +400,7 @@
                             </div>
                             <div class="mt-n1">
                                 <h4>Call Us</h4>
-                                <p class="m-0">+1-647-848-9738</p>
+                                <p class="m-0">+977 9861813030</p>
                                 <p class="m-0">+977 9861813030</p>
                             </div>
                         </div>
@@ -473,8 +410,7 @@
                             </div>
                             <div class="mt-n1">
                                 <h4>Email Us</h4>
-                                <p class="m-0">edu@eguras.com</p>
-                                <p class="m-0">kathmandu@eguras.com</p>
+                                <p class="m-0">sgandassociates2026@gmail.com</p>
                             </div>
                         </div>
                     </div>

@@ -147,19 +147,18 @@
     <!-- Feature Start -->
 
     <!-- Team Start -->
-    <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="section-title text-center position-relative mb-5">
             <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Team</h6>
             <h1 class="display-4">Meet Our Expert Team</h1>
         </div>
         <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
-            
             <div class="team-item">
-                <img class="img-fluid w-100" src="img/damit.jpeg" alt="">
+                <img class="img-fluid w-100" src="img/about.jpg" alt="">
                 <div class="bg-light text-center p-4">
-                    <h5 class="mb-3">Amit Dallakoti</h5>
-                    <p class="mb-2">CEO, CCG #1934</p>
+                    <h5 class="mb-3">Sakshyam Gautam</h5>
+                    <p class="mb-2">Chartered Accountant</p>
                     <div class="d-flex justify-content-center">
                         <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
                         <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -169,10 +168,10 @@
                 </div>
             </div>
             <div class="team-item">
-                <img class="img-fluid w-100" src="img/bnikhil.jpeg" alt="">
+                <img class="img-fluid w-100" src="img/about.jpg" alt="">
                 <div class="bg-light text-center p-4">
-                    <h5 class="mb-3">Nikhil Bhardwaj</h5>
-                    <p class="mb-2">RCIC #R707179</p>
+                    <h5 class="mb-3">Abinash Kumar Singh</h5>
+                    <p class="mb-2">Chartered Accountant</p>
                     <div class="d-flex justify-content-center">
                         <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
                         <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -182,23 +181,10 @@
                 </div>
             </div>
             <div class="team-item">
-                <img class="img-fluid w-100" src="img/camit.jpeg" alt="">
+                <img class="img-fluid w-100" src="img/about.jpg" alt="">
                 <div class="bg-light text-center p-4">
-                    <h5 class="mb-3">Amit Chaudhary</h5>
-                    <p class="mb-2">Counsellor</p>
-                    <div class="d-flex justify-content-center">
-                        <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="mx-1 p-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="mx-1 p-1" href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="team-item">
-                <img class="img-fluid w-100" src="img/kprativa.jpg" alt="">
-                <div class="bg-light text-center p-4">
-                    <h5 class="mb-3">Prativa Khadka</h5>
-                    <p class="mb-2">Director</p>
+                    <h5 class="mb-3">Ashish Poudel</h5>
+                    <p class="mb-2">Audit Manager</p>
                     <div class="d-flex justify-content-center">
                         <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
                         <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -209,7 +195,15 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+    <div id="team-section"></div>
+    <script>
+        fetch('team.html')
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById('team-section').innerHTML = data;
+        });
+        </script>
 <!-- Team End -->
 
 <div id="foot"></div>
