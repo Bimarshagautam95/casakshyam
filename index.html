@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Sakshyam Gautam and Associates | Chartered Accountants</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Sakshyam Gautam and Associates, Chartered Accountants, Audit Nepal, Tax Advisory Kathmandu, Financial Complete Solutions, Corporate Accounting" name="keywords">
+    <meta content="Sakshyam Gautam and Associates, Chartered Accountants, Audit Nepal, Tax Advisory Kathmandu, Financial Complete Solutions, Corporate Accounting, Tax Calculator" name="keywords">
     <meta content="Sakshyam Gautam and Associates offers complete corporate financial solutions, including statutory auditing, financial accounting, and strategic tax planning." name="description">
 
     <link href="img/favicon.ico" rel="icon">
@@ -169,7 +169,7 @@
                 </div>
             </div>
             <div class="courses-item position-relative">
-                <img class="img-fluid" src="img/financialad.avif" alt="Management Consulting">
+                <img class="img-fluid" src="img/consulting.png" alt="Management Consulting">
                 <div class="courses-text">
                     <h4 class="text-center text-white px-3">Management Consultancy</h4>
                     <div class="border-top w-100 mt-3"></div>
@@ -190,40 +190,101 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center bg-image mx-0 mb-5">
-        <div class="col-lg-6 py-5">
-            <div class="bg-white p-5 my-5">
-                <h1 class="text-center mb-4">Our Track Record</h1>
-                
-                <div class="owl-carousel courses-carousel">
-                    <div class="courses-item position-relative">
-                        <img class="img-fluid" src="img/6.png" alt="Success Story">
+    <div class="container-fluid py-5 bg-light shadow-sm" style="margin: 60px 0;">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-title text-center position-relative mb-5">
+                        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Planning Tools</h6>
+                        <h1 class="display-4">Corporate Tax Estimator</h1>
                     </div>
-                    <div class="courses-item position-relative">
-                        <img class="img-fluid" src="img/7.png" alt="Success Story">
-                    </div>
-                    <div class="courses-item position-relative">
-                        <img class="img-fluid" src="img/8.png" alt="Success Story">
-                    </div>
-                    <div class="courses-item position-relative">
-                        <img class="img-fluid" src="img/30.png" alt="Success Story">
-                    </div>
-                    <div class="courses-item position-relative">
-                        <img class="img-fluid" src="img/31.png" alt="Success Story">
-                    </div>
-                    <div class="courses-item position-relative">
-                        <img class="img-fluid" src="img/32.png" alt="Success Story">
-                    </div>
-                    <div class="courses-item position-relative">
-                        <img class="img-fluid" src="img/9.png" alt="Success Story">
-                    </div>
-                    <div class="courses-item position-relative">
-                        <img class="img-fluid" src="img/10.png" alt="Success Story">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 bg-white p-5 rounded border">
+                    <form id="taxForm" onsubmit="calculateCorporateTax(event)">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label class="font-weight-600 text-dark">Annual Gross Revenue (Rs.)</label>
+                                <input type="number" id="grossRevenue" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="e.g. 5000000" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="font-weight-600 text-dark">Total Allowable Expenses (Rs.)</label>
+                                <input type="number" id="totalExpenses" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="e.g. 2000000" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group mt-3">
+                                <label class="font-weight-600 text-dark">Entity Category / Sector</label>
+                                <select id="entityType" class="form-control border-top-0 border-right-0 border-left-0 p-0" style="height: 40px;">
+                                    <option value="general_corp">General Corporate Entities & Businesses (25%)</option>
+                                    <option value="bank_fin">Banks, Financial Institutions & Insurance (30%)</option>
+                                    <option value="manufacturing">Special Manufacturing Industries (20%)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary py-3 px-5" type="submit">Calculate Estimated Tax</button>
+                        </div>
+                    </form>
+
+                    <div id="taxResultBlock" class="mt-5 p-4 bg-light rounded border d-none">
+                        <h4 class="text-dark border-bottom pb-2 mb-3"><i class="fa fa-calculator text-primary mr-2"></i>Estimation Breakdown</h4>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Net Assessable Income:</span>
+                            <strong class="text-dark" id="resNetIncome">Rs. 0.00</strong>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Applicable Corporate Tax Rate:</span>
+                            <strong class="text-dark" id="resTaxRate">0%</strong>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h5 m-0 text-dark font-weight-bold">Estimated Tax Liability:</span>
+                            <span class="h4 m-0 text-success font-weight-bold" id="resTotalTax">Rs. 0.00</span>
+                        </div>
+                        <p class="small text-muted mt-3 mb-0 text-center"><i class="fa fa-info-circle mr-1"></i> This is an indicative estimation based on flat legislative tax baselines. Contact our experts for formal statutory mapping.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function calculateCorporateTax(event) {
+            event.preventDefault();
+            
+            const revenue = parseFloat(document.getElementById('grossRevenue').value) || 0;
+            const expenses = parseFloat(document.getElementById('totalExpenses').value) || 0;
+            const entityType = document.getElementById('entityType').value;
+            
+            // Calculate Net Assessable Income
+            let netIncome = revenue - expenses;
+            if (netIncome < 0) netIncome = 0;
+            
+            // Determine Standard Corporate Tax Baselines
+            let taxRate = 0.25; 
+            let rateLabel = "25%";
+            
+            if (entityType === "bank_fin") {
+                taxRate = 0.30;
+                rateLabel = "30%";
+            } else if (entityType === "manufacturing") {
+                taxRate = 0.20;
+                rateLabel = "20%";
+            }
+            
+            const calculatedTax = netIncome * taxRate;
+            
+            // Inject values back into the interface view fields
+            document.getElementById('resNetIncome').innerText = "Rs. " + netIncome.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('resTaxRate').innerText = rateLabel;
+            document.getElementById('resTotalTax').innerText = "Rs. " + calculatedTax.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            
+            // Unhide presentation view frame
+            document.getElementById('taxResultBlock').classList.remove('d-none');
+        }
+    </script>
     <div id="team-section"></div>
     <script>
         fetch('team.html')
