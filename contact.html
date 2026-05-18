@@ -36,6 +36,7 @@
             document.getElementById('content').innerHTML = data;
         });
     </script>
+    
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom" style="margin-bottom: 90px;">
         <div class="container text-center py-5">
@@ -62,7 +63,7 @@
                             </div>
                             <div class="mt-n1">
                                 <h4>Our Location</h4>
-                                <p class="m-0">Suryabinayak7, Bhaktapur</p>
+                                <p class="m-0">Suryabinayak 7, Bhaktapur</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-5">
@@ -91,31 +92,76 @@
                         <h1 class="display-4">Send Us A Message</h1>
                     </div>
                     <div class="contact-form">
-                        <form>
+                        <!-- ACTION REQUIRED: Replace 'YOUR_FORM_ID' with your unique key from Formspree -->
+                        <form id="contactForm" action="https://formspree.io/f/xkoenvdq" method="POST">
                             <div class="row">
                                 <div class="col-6 form-group">
-                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name" required="required">
+                                    <input type="text" name="name" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name" required="required">
                                 </div>
                                 <div class="col-6 form-group">
-                                    <input type="email" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Email" required="required">
+                                    <input type="email" name="email" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Email" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Subject" required="required">
+                                <input type="text" name="subject" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Subject" required="required">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5" placeholder="Message" required="required"></textarea>
+                                <textarea name="message" class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5" placeholder="Message" required="required"></textarea>
                             </div>
                             <div>
                                 <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
                             </div>
                         </form>
+                        <!-- Success/Error Message Status Box -->
+                        <div id="formStatus" class="mt-3" style="display: none; font-weight: 600;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Contact End -->
+
+    <!-- Form Handling Script (Clears form after submission) -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the default page redirect
+            
+            const form = event.target;
+            const status = document.getElementById('formStatus');
+            const data = new FormData(form);
+            
+            // Show sending feedback
+            status.style.display = 'block';
+            status.style.color = '#FFA500'; 
+            status.textContent = 'Sending message...';
+            
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.style.color = 'green';
+                    status.textContent = 'Thank you! Your message has been sent successfully.';
+                    form.reset(); // This clears the form inputs
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.textContent = data['errors'].map(error => error['message']).join(", ");
+                        } else {
+                            status.textContent = "Oops! There was a problem submitting your form.";
+                        }
+                        status.style.color = 'red';
+                    })
+                }
+            }).catch(error => {
+                status.style.color = 'red';
+                status.textContent = "Oops! There was a problem connecting to the server.";
+            });
+        });
+    </script>
 
     <div id="foot"></div>
 
