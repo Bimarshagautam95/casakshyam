@@ -289,7 +289,7 @@
     <!-- Team Section Component -->
     <div id="team-section"></div>
 
-    <!-- Contact & Offices Info Section -->
+    <!-- Contact & Offices Info Section
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row align-items-center">
@@ -353,7 +353,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+
+    <div id="contact-section"></div>
 
     <!-- Dynamic Footer Layout Wrapper -->
     <div id="foot"></div>
@@ -387,31 +390,18 @@
             .then(response => response.text())
             .then(data => { document.getElementById('foot').innerHTML = data; });
 
-        fetch('testimonial.html')
+        fetch('contact.html')
             .then(response => response.text())
             .then(data => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(data, 'text/html');
-                const testimonialSection = doc.querySelector('.container-fluid.py-5');
-                if(testimonialSection) {
-                    document.getElementById('testimonial').innerHTML = testimonialSection.outerHTML;
+                // Target the exact container holding the form elements in contact.html
+                const contactSection = doc.querySelector('.container-fluid.py-5');
+                if(contactSection) {
+                    document.getElementById('contact-section').innerHTML = contactSection.outerHTML;
+                    // Connect Formspree AJAX engine safely once DOM element finishes mounting
+                    initDynamicContactForm();
                 }
-            
-                setTimeout(() => {
-                    if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
-                        $('.testimonial-carousel').owlCarousel({
-                            autoplay: true,
-                            smartSpeed: 1000,
-                            margin: 25,
-                            dots: true,
-                            loop: true,
-                            responsive: {
-                                0: { items: 1 },
-                                768: { items: 1 }
-                            }
-                        });
-                    }
-                }, 100);
             });
 
         // Corporate Tax Logic Engine
